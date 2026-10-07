@@ -95,22 +95,33 @@ def _default_bundle(language):
     item = registry[language]
     from huggingface_hub import snapshot_download
 
-    root = (
-        Path(
-            snapshot_download(
-                item["repo"],
-                revision=item["revision"],
-                allow_patterns=[
-                    item["path"] + "/" + x
-                    for x in ["adapter.pt", "config.json", "SHA256SUMS"]
-                ],
-            )
+    snapshot = Path(
+        snapshot_download(
+            item["repo"],
+            revision=item["revision"],
+            allow_patterns=["config.json"]
+            + [
+                item["path"] + "/" + x
+                for x in ["adapter.pt", "config.json", "SHA256SUMS"]
+            ],
         )
-        / item["path"]
     )
+    catalog = json.loads((snapshot / "config.json").read_text())
+    entry = catalog.get("languages", {}).get(language)
+    expected = {
+        key: item[key]
+        for key in ("path", "adapter_sha256", "config_sha256", "speaker_names")
+    }
     if (
-        sha(root / "adapter.pt") != item["adapter_sha256"]
-        or sha(root / "config.json") != item["config_sha256"]
+        catalog.get("format") != "akinvox-multispeaker-catalog/v1"
+        or catalog.get("base_sha256") != BASE_SHA256
+        or entry != expected
+    ):
+        raise ValueError("Published language catalog differs from its release pin")
+    root = snapshot / entry["path"]
+    if (
+        sha(root / "adapter.pt") != entry["adapter_sha256"]
+        or sha(root / "config.json") != entry["config_sha256"]
     ):
         raise ValueError("Published bundle differs from its immutable release pin")
     return root

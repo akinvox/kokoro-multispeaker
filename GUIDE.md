@@ -16,7 +16,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
-python -m pip install https://github.com/akinvox/kokoro-multispeaker/releases/download/2026-10-07/akinvox_kokoro_multispeaker-1.0.0-py3-none-any.whl
+python -m pip install https://github.com/akinvox/kokoro-multispeaker/releases/download/2026-10-07.1/akinvox_kokoro_multispeaker-1.0.1-py3-none-any.whl
 python -m pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
 ```
 

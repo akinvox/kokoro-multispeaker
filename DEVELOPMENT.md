@@ -7,7 +7,7 @@ The public entrypoint is `KokoroMultispeaker`. One instance owns the original st
 | Module | Responsibility |
 | --- | --- |
 | `shared.py` | Public Python API, model loading and narration |
-| `bundles.py` | Pinned downloads, checksum and bundle validation |
+| `bundles.py` | Pinned downloads, language catalog, checksum and bundle validation |
 | `cli.py` | Command-line arguments; loads only the requested language |
 | `language_weights.py` | Serialized adapter selection and shared stock tensor ownership |
 | `frontend.py` | English/German text and phoneme conventions |
