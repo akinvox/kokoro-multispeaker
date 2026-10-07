@@ -1,0 +1,16 @@
+AkinVox Kokoro Multispeaker
+Copyright 2026 AkinVox contributors
+
+This distribution includes modified native inference architecture code derived
+from Kokoro and StyleTTS2. AkinVox's release is independent of the upstream projects.
+
+Kokoro: https://github.com/hexgrad/kokoro
+Kokoro-82M: https://huggingface.co/hexgrad/Kokoro-82M (Apache-2.0)
+StyleTTS2: https://github.com/yl4579/StyleTTS2
+Copyright (c) 2023 Aaron (Yinghao) Li. MIT License.
+The original MIT notice is retained in licenses/StyleTTS2-MIT.txt.
+
+Local modifications include shared stock language-adapter selection, native model
+reconstruction, phoneme validation, finalized multispeaker conditioning and public
+Python/command-line interfaces. Dependencies retain their own licenses.
+No eSpeak-NG binary/data, dependency source or training recordings are bundled.

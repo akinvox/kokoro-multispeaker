@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "akinvox-kokoro-multispeaker"
+version = "1.0.0"
+description = "AkinVox Kokoro native language adapters over one shared stock base"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+license = {text = "Apache-2.0"}
+authors = [{name = "AkinVox"}]
+dependencies = [
+  "torch==2.6.0",
+  "kokoro==0.9.4",
+  "numpy==1.26.4",
+  "scipy==1.14.0",
+  "transformers==4.57.3",
+  "safetensors==0.5.3",
+  "huggingface-hub>=0.36,<1",
+  "soundfile==0.13.1",
+  "phonemizer-fork==3.3.2",
+  "misaki[en]==0.9.4",
+  "espeakng-loader==0.2.4",
+]
+
+[project.scripts]
+kokoro-multispeaker = "kokoro_multispeaker.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "black==26.3.1", "ruff==0.15.8"]
+
+[project.urls]
+Homepage = "https://akinvox.com"
+Repository = "https://github.com/akinvox/kokoro-multispeaker"
+
+[tool.ruff]
+target-version = "py310"
+
+[tool.black]
+target-version = ["py310"]
+
+[tool.setuptools.packages.find]
+include = ["kokoro_multispeaker*"]
+
+[tool.setuptools]
+license-files = ["LICENSE", "NOTICE", "licenses/*.txt"]
+
+[tool.setuptools.package-data]
+kokoro_multispeaker = ["releases.json"]

@@ -1,0 +1,36 @@
+{
+  "en": {
+    "repo": "AKinvox/kokoro-multispeaker",
+    "revision": "2b3fa45b39256382872823562da36d371a808e5a",
+    "path": "adapters/en",
+    "adapter_sha256": "66f0e359731a09215ac8238c733c3d54b69131d60e476134aaa8d5fadfdadba4",
+    "config_sha256": "99041b6620987af0d598cee917a25ff8825ee6b8d88cf317cb4b8cb922b27242",
+    "speaker_names": [
+      "AV_ariala",
+      "AV_brody",
+      "AV_david",
+      "AV_elliott",
+      "AV_ralph",
+      "AV_cori",
+      "AV_phil",
+      "AV_helen"
+    ]
+  },
+  "de": {
+    "repo": "AKinvox/kokoro-multispeaker",
+    "revision": "2b3fa45b39256382872823562da36d371a808e5a",
+    "path": "adapters/de",
+    "adapter_sha256": "2c6ddf215bfabfcce16efb54fcdaaead4b4dbe4285054b27764c6cfe9b137834",
+    "config_sha256": "4a70fd6b9c8f7b12712dc93bee34e62529b471226349238a8ad23fd202c9e79b",
+    "speaker_names": [
+      "AV_thorsten",
+      "AV_bernd",
+      "AV_eva_k",
+      "AV_karlsson",
+      "AV_kerstin",
+      "AV_mucky",
+      "AV_hokuspokus",
+      "AV_julia"
+    ]
+  }
+}
